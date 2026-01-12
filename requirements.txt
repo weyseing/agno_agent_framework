@@ -1,6 +1,6 @@
 agno
-openai
+google-genai
 python-dotenv
-sqlalchemy
-psycopg2-binary
-pandas
+yfinance
+duckduckgo-search
+ddgs

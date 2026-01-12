@@ -1,5 +1,8 @@
 services:
   agno_agent_framework:
+    container_name: agno_agent_framework
     build: .
+    env_file:
+      - .env
     volumes:
       - .:/app
