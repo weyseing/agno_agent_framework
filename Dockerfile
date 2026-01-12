@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+# env
+ENV PYTHONUNBUFFERED=1
+
+# workdir
+WORKDIR /app
+
+# install dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# install python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# app code
+COPY . .
+
+# entrypoint
+CMD ["tail", "-f", "/dev/null"]

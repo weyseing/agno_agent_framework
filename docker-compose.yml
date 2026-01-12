@@ -1,0 +1,5 @@
+services:
+  agno_agent_framework:
+    build: .
+    volumes:
+      - .:/app
