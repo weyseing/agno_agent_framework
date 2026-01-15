@@ -6,10 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+MODEL_NAME = "gemini-2.5-flash-lite"
+
 def run_agent_team(query: str):
     researcher = Agent(
         name="Research Agent",
-        model=Gemini(id="gemini-2.5-flash"),
+        model=Gemini(id=MODEL_NAME),
         instructions=[
             "Search for facts and break down the core components of the query.",
             "Provide detailed technical points."
@@ -18,7 +20,7 @@ def run_agent_team(query: str):
 
     summarizer = Agent(
         name="Summary Agent",
-        model=Gemini(id="gemini-2.5-flash"),
+        model=Gemini(id=MODEL_NAME),
         instructions=[
             "Take the research findings and create a high-level summary.",
             "Keep the final answer concise and user-friendly."
@@ -28,7 +30,7 @@ def run_agent_team(query: str):
     agent_team = Team(
         name="Knowledge Team",
         members=[researcher, summarizer],
-        model=Gemini(id="gemini-2.5-flash"),
+        model=Gemini(id=MODEL_NAME),
         # pass in sequence
         instructions=[
             "First, let the Research Agent analyze the topic.",
@@ -41,7 +43,7 @@ def run_agent_team(query: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("query", type=str, help="Question for the agent team")
+    parser.add_argument("query", type=str, nargs='?', default="Explain Agno Agentic")
     args = parser.parse_args()
 
     run_agent_team(args.query)
