@@ -1,13 +1,12 @@
 import argparse
 from agno.agent import Agent
 from agno.models.google import Gemini
-from agno.team import Team  # Use the Team class for orchestration
+from agno.team import Team
 from dotenv import load_dotenv
 
 load_dotenv()
 
 def run_agent_team(query: str):
-    # 1. Define specialized agents
     researcher = Agent(
         name="Research Agent",
         model=Gemini(id="gemini-2.5-flash"),
@@ -26,7 +25,6 @@ def run_agent_team(query: str):
         ],
     )
 
-    # 2. Define the Team (This replaces creating a 'leader' Agent)
     agent_team = Team(
         name="Knowledge Team",
         members=[researcher, summarizer],
@@ -38,7 +36,6 @@ def run_agent_team(query: str):
         markdown=True,
     )
 
-    # 3. Execute
     agent_team.print_response(query, stream=True)
 
 if __name__ == "__main__":

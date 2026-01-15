@@ -1,0 +1,3 @@
+{
+  "postCreateCommand": "echo \"GOOGLE_API_KEY=$GOOGLE_API_KEY\" > .env"
+}
