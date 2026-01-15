@@ -29,6 +29,7 @@ def run_agent_team(query: str):
         name="Knowledge Team",
         members=[researcher, summarizer],
         model=Gemini(id="gemini-2.5-flash"),
+        # pass in sequence
         instructions=[
             "First, let the Research Agent analyze the topic.",
             "Then, let the Summary Agent synthesize that research into the final answer."
