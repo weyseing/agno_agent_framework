@@ -5,3 +5,5 @@ yfinance
 duckduckgo-search
 ddgs
 google-generativeai
+fastapi
+uvicorn
