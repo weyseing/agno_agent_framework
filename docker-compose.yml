@@ -1,10 +1,27 @@
 services:
   agno_agent_framework:
     container_name: agno_agent_framework
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile_agno
     env_file:
       - .env
     ports:
       - "7777:7777"
+      - "8000:8000"
     volumes:
       - .:/app
+    environment:
+      - PYTHONPATH=.
+
+  agno_frontend:
+    container_name: agno_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - VITE_API_URL=http://localhost:8000

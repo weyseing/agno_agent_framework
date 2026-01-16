@@ -3,3 +3,14 @@
 ```properties
 GOOGLE_API_KEY=
 ```
+
+- **Install node dependencies**
+```bash
+cd frontend
+npm install
+```
+
+- **Setup Docker containers**
+```bash
+docker compose up -d
+```
