@@ -7,3 +7,4 @@ ddgs
 google-generativeai
 fastapi
 uvicorn
+sqlalchemy
