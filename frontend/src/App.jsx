@@ -40,15 +40,6 @@ function App() {
   return (
     <div style={{ padding: '40px', background: '#1a1a1a', color: 'white', minHeight: '100vh' }}>
       <h2>Agno Agent OS Chat</h2>
-
-      {/* <div style={{ height: '400px', overflowY: 'auto', border: '1px solid #444', padding: '10px', marginBottom: '20px' }}>
-        {chatLog.map((msg, i) => (
-          <div key={i} style={{ marginBottom: '10px', color: msg.role === 'user' ? '#4af' : '#4f4' }}>
-            <strong>{msg.role === 'user' ? 'You: ' : 'Agent: '}</strong>{msg.content}
-          </div>
-        ))}
-      </div> */}
-
       <div style={{ height: '400px', overflowY: 'auto', border: '1px solid #444', padding: '10px', marginBottom: '20px' }}>
         {chatLog.map((msg, i) => (
           <div key={i} style={{ marginBottom: '10px', color: msg.role === 'user' ? '#4af' : '#4f4' }}>
@@ -63,7 +54,6 @@ function App() {
           </div>
         ))}
       </div>
-
       <input 
         value={input} 
         onChange={(e) => setInput(e.target.value)} 
